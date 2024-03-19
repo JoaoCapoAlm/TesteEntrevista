@@ -6,6 +6,7 @@ namespace TesteEntrevista.Models
 {
     public class Produto
     {
+        [Key]
         [DisplayName("ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idProduto { get; set; }

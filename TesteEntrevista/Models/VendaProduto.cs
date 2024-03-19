@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TesteEntrevista.Models
 {
     public class VendaProduto
     {
+        [Key]
+        [DisplayName("ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdVendaProduto { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]

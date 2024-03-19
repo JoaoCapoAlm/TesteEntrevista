@@ -18,16 +18,16 @@ namespace TesteEntrevista.Models
             modelBuilder.Entity<Cliente>()
                 .HasKey(x => x.idCliente);
 
-            modelBuilder.Entity<Cliente>()
-                .HasMany(x => x.Vendas)
-                .WithOne(x => x.Cliente)
-                .HasForeignKey(x => x.idVenda);
-
             modelBuilder.Entity<Produto>()
                 .HasKey(x => x.idProduto);
 
             modelBuilder.Entity<Venda>()
                 .HasKey(x => x.idVenda);
+
+            modelBuilder.Entity<Venda>()
+                .HasOne(x => x.Cliente)
+                .WithMany(x => x.Vendas)
+                .HasForeignKey(x => x.idCliente);
 
             modelBuilder.Entity<VendaProduto>()
                 .HasKey(x => x.IdVendaProduto);
