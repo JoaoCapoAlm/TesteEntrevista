@@ -13,8 +13,19 @@ namespace TesteEntrevista.Models
         [Required(ErrorMessage = "Campo obrigatório")]
         [DisplayName("Nome")]
         public string nmCliente { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo obrigatório")]
         public string Cidade { get; set; }
         public ICollection<Venda> Vendas { get; set; }
+
+        public Cliente()
+        {
+        }
+
+        public Cliente(string nome, string cidade)
+        {
+            nmCliente = nome;
+            Cidade = cidade;
+            Vendas = [];
+        }
     }
 }
