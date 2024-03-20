@@ -40,7 +40,7 @@ namespace TesteEntrevista.Migrations
 
                     b.HasKey("idCliente");
 
-                    b.ToTable("Cliente");
+                    b.ToTable("Cliente", (string)null);
                 });
 
             modelBuilder.Entity("TesteEntrevista.Models.Produto", b =>
@@ -60,7 +60,7 @@ namespace TesteEntrevista.Migrations
 
                     b.HasKey("idProduto");
 
-                    b.ToTable("Produto");
+                    b.ToTable("Produto", (string)null);
                 });
 
             modelBuilder.Entity("TesteEntrevista.Models.Venda", b =>
@@ -84,7 +84,7 @@ namespace TesteEntrevista.Migrations
 
                     b.HasIndex("idCliente");
 
-                    b.ToTable("Venda");
+                    b.ToTable("Venda", (string)null);
                 });
 
             modelBuilder.Entity("TesteEntrevista.Models.VendaProduto", b =>
@@ -113,7 +113,7 @@ namespace TesteEntrevista.Migrations
 
                     b.HasIndex("idVenda");
 
-                    b.ToTable("VendaProduto");
+                    b.ToTable("VendaProduto", (string)null);
                 });
 
             modelBuilder.Entity("TesteEntrevista.Models.Venda", b =>

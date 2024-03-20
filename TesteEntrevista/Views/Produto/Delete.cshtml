@@ -1,0 +1,33 @@
+﻿@model TesteEntrevista.Models.Produto
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Excluir produto</h1>
+
+<h3>Você tem certeza que deseja excluir esse produto?</h3>
+<hr />
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dscProduto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dscProduto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vlrUnitario)
+        </dt>
+        <dd class = "col-sm-10">
+            R$ @Html.DisplayFor(model => model.vlrUnitario)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="idProduto" />
+        <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+﻿@model TesteEntrevista.Models.Produto
+
+@{
+    ViewData["Title"] = "Editar produto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar produto</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idProduto" />
+            <div class="form-group  my-2">
+                <label asp-for="dscProduto" class="control-label"></label>
+                <input asp-for="dscProduto" class="form-control" />
+                <span asp-validation-for="dscProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="vlrUnitario" class="control-label"></label>
+                @Html.EditorFor(model => model.vlrUnitario, new { htmlAttributes = new { @class = "form-control", type = "decimal", step = "any" } })
+                <span asp-validation-for="vlrUnitario" class="text-danger"></span>
+            </div>
+            <div class="form-group my-3">
+                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
