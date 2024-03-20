@@ -1,0 +1,57 @@
+﻿@model TesteEntrevista.Models.Venda
+
+@{
+    ViewData["Title"] = "Adicionar venda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Adicionar venda</h1>
+
+<hr />
+<form asp-action="Create" class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group my-2">
+            <label asp-for="idCliente" class="control-label"></label>
+            <select asp-for="idCliente" class ="form-control" asp-items="ViewBag.idCliente"></select>
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="dthVenda" class="control-label"></label>
+            <input asp-for="dthVenda" class="form-control" />
+            <span asp-validation-for="dthVenda" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group my-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço unitário</th>
+                        <th scope="col" class="w-25">Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var produto in ViewBag.produtos)
+                    {
+                        <tr>
+                            <td>@produto.dscProduto</td>
+                            <td>R$ @String.Format("{0:N2}", produto.vlrUnitario)</td>
+                            <td>
+                                <input type="number" class="form-control" name="qtd_@produto.idProduto" value="0" step="1" min="0" aria-label="Quantidade" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="form-group my-3 col-md-10 text-center">
+        <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-success">Adicionar</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

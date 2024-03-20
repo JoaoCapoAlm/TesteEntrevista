@@ -6,13 +6,19 @@ namespace TesteEntrevista.Models
 {
     public class Venda
     {
+        public Venda()
+        {
+            vlrTotalVenda = 0;
+            VendaProduto = [];
+        }
         [Key]
         [DisplayName("ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idVenda { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
-        [DisplayName("ID do Cliente")]
+        [DisplayName("Cliente")]
         public int idCliente { get; set; }
+        [DisplayName("Cliente")]
         public virtual Cliente Cliente { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
