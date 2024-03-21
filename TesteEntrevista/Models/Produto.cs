@@ -23,5 +23,6 @@ namespace TesteEntrevista.Models
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public float vlrUnitario { get; set; }
         public virtual ICollection<Venda> Vendas { get; set; }
+        public int? IdImportacao { get; set; }
     }
 }

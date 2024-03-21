@@ -16,6 +16,7 @@ namespace TesteEntrevista.Models
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Cidade { get; set; }
         public ICollection<Venda> Vendas { get; set; }
+        public int? IdImportacao { get; set; }
 
         public Cliente()
         {

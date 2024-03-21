@@ -19,10 +19,14 @@ namespace TesteEntrevista.Controllers
         }
 
         // GET: Venda
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([Bind("busca")] string? busca)
         {
-            var appTesteContext = _context.Venda.Include(v => v.Cliente).Include(v => v.Produto);
-            return View(await appTesteContext.ToListAsync());
+            var venda = await _context.Venda.AsNoTracking()
+                .Include(v => v.Cliente)
+                .Include(v => v.Produto)
+                .Where(x => string.IsNullOrEmpty(busca) || x.Cliente.nmCliente.Contains(busca) || x.Produto.dscProduto.Contains(busca))
+                .ToListAsync();
+            return View(venda);
         }
 
 

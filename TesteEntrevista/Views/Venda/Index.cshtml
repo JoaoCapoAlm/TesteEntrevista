@@ -10,6 +10,16 @@
 <p>
     <a asp-action="Create" class="btn btn-success">Adicioanr venda</a>
 </p>
+<section class="row my-5">
+    <form asp-action="Index" class="row gy-2 gx-3 align-items-center">
+        <div class="col-md-10">
+            <input type="text" name="busca" class="form-control col-10" placeholder="Buscar venda por cliente ou produto" aria-label="Buscar venda por cliente ou produto" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success w-100">Buscar</button>
+        </div>
+    </form>
+</section>
 <table class="table">
     <thead>
         <tr>

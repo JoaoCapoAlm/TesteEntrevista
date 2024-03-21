@@ -14,9 +14,9 @@ namespace TesteEntrevista.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([Bind("cliente")] string? cliente = "")
         {
-            return View(await _context.Cliente.AsNoTracking().ToListAsync());
+            return View(await _context.Cliente.AsNoTracking().Where(x => x.nmCliente.Contains(cliente ?? "")).ToListAsync());
         }
 
         public IActionResult Create()

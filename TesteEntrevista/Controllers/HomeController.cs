@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TesteEntrevista.Models;
+using TesteEntrevista.Models.Dtos;
 
 namespace TesteEntrevista.Controllers
 {

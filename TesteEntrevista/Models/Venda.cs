@@ -39,5 +39,6 @@ namespace TesteEntrevista.Models
         [DisplayName("Valor total")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
         public float vlrTotalVenda { get; set; }
+        public int? IdImportacao { get; set; }
     }
 }

@@ -8,7 +8,16 @@
 <h1>Clientes</h1>
 
 <p><a asp-action="Create" class="btn btn-success">Adicionar cliente</a></p>
-
+<section class="row my-5">
+    <form asp-action="Index" class="row gy-2 gx-3 align-items-center">
+        <div class="col-md-10">
+            <input type="text" name="cliente" class="form-control col-10" placeholder="Buscar cliente" aria-label="Buscar cliente" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success w-100">Buscar</button>
+        </div>
+    </form>
+</section>
 <table class="table">
     <thead>
         <tr>

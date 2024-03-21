@@ -20,9 +20,9 @@ namespace TesteEntrevista.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([Bind("produto")] string? produto = "")
         {
-            return View(await _context.Produto.ToListAsync());
+            return View(await _context.Produto.AsNoTracking().Where(x => x.dscProduto.Contains(produto ?? "")).ToListAsync());
         }
 
         public IActionResult Create()
