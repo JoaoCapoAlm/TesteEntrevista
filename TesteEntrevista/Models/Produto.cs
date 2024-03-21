@@ -8,13 +8,13 @@ namespace TesteEntrevista.Models
     {
         public Produto()
         {
-            VendaProduto = [];
+            Vendas = [];
         }
         [Key]
         [DisplayName("ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idProduto { get; set; }
-        [Required(ErrorMessage = "Campo obrigatório")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Campo obrigatório")]
         [DisplayName("Descrição")]
         public string dscProduto { get; set; }
         [Required(ErrorMessage = "Campo obrigatório")]
@@ -22,6 +22,6 @@ namespace TesteEntrevista.Models
         [DisplayName("Valor unitário")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public float vlrUnitario { get; set; }
-        public virtual ICollection<VendaProduto> VendaProduto { get; set; }
+        public virtual ICollection<Venda> Vendas { get; set; }
     }
 }

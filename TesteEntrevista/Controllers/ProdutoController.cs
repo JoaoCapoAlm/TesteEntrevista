@@ -73,8 +73,7 @@ namespace TesteEntrevista.Controllers
                 {
                     idProduto = idProduto,
                     dscProduto = dscProduto,
-                    vlrUnitario = vlrUnitario,
-                    VendaProduto = []
+                    vlrUnitario = vlrUnitario
                 });
             }
 

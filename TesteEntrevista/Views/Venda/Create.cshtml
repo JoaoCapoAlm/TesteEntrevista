@@ -8,49 +8,35 @@
 <h1>Adicionar venda</h1>
 
 <hr />
-<form asp-action="Create" class="row">
+<div class="row">
     <div class="col-md-4">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group my-2">
-            <label asp-for="idCliente" class="control-label"></label>
-            <select asp-for="idCliente" class ="form-control" asp-items="ViewBag.idCliente"></select>
-        </div>
-        <div class="form-group my-2">
-            <label asp-for="dthVenda" class="control-label"></label>
-            <input asp-for="dthVenda" class="form-control" />
-            <span asp-validation-for="dthVenda" class="text-danger"></span>
-        </div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group my-2">
+                <label asp-for="idCliente" class="control-label"></label>
+                <select asp-for="idCliente" class ="form-control" asp-items="ViewBag.idCliente"></select>
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="dthVenda" class="control-label"></label>
+                <input asp-for="dthVenda" class="form-control" />
+                <span asp-validation-for="dthVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="idProduto" class="control-label"></label>
+                <select asp-for="idProduto" class ="form-control" asp-items="ViewBag.idProduto"></select>
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="qtdVenda" class="control-label"></label>
+                <input asp-for="qtdVenda" class="form-control" />
+                <span asp-validation-for="qtdVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group my-3">
+                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </form>
     </div>
-    <div class="col-md-6">
-        <div class="form-group my-2">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço unitário</th>
-                        <th scope="col" class="w-25">Quantidade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var produto in ViewBag.produtos)
-                    {
-                        <tr>
-                            <td>@produto.dscProduto</td>
-                            <td>R$ @String.Format("{0:N2}", produto.vlrUnitario)</td>
-                            <td>
-                                <input type="number" class="form-control" name="qtd_@produto.idProduto" value="0" step="1" min="0" aria-label="Quantidade" />
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="form-group my-3 col-md-10 text-center">
-        <a asp-action="Index" class="btn btn-danger">Cancelar</a>
-        <button type="submit" class="btn btn-success">Adicionar</button>
-    </div>
-</form>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

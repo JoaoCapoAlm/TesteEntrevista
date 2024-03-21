@@ -14,13 +14,11 @@ namespace TesteEntrevista.Controllers
             _context = context;
         }
 
-        // GET: Cliente
         public async Task<IActionResult> Index()
         {
             return View(await _context.Cliente.AsNoTracking().ToListAsync());
         }
 
-        // GET: Cliente/Create
         public IActionResult Create()
         {
             return View();
@@ -54,9 +52,6 @@ namespace TesteEntrevista.Controllers
             return View(cliente);
         }
 
-        // POST: Cliente/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("/edit/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([FromRoute] int id, [Bind("idCliente,nmCliente,Cidade")] UpdateClienteDto clienteDto)
@@ -80,7 +75,6 @@ namespace TesteEntrevista.Controllers
             return View(clienteDto);
         }
 
-        // GET: Cliente/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -98,7 +92,6 @@ namespace TesteEntrevista.Controllers
             return View(cliente);
         }
 
-        // POST: Cliente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

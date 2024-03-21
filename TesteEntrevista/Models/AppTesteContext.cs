@@ -11,7 +11,6 @@ namespace TesteEntrevista.Models
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Venda> Venda { get; set; }
-        public DbSet<VendaProduto> VendaProduto { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,18 +28,10 @@ namespace TesteEntrevista.Models
                 .WithMany(x => x.Vendas)
                 .HasForeignKey(x => x.idCliente);
 
-            modelBuilder.Entity<VendaProduto>()
-                .HasKey(x => x.IdVendaProduto);
-
-            modelBuilder.Entity<VendaProduto>()
+            modelBuilder.Entity<Venda>()
                 .HasOne(x => x.Produto)
-                .WithMany(x => x.VendaProduto)
+                .WithMany(x => x.Vendas)
                 .HasForeignKey(x => x.idProduto);
-
-            modelBuilder.Entity<VendaProduto>()
-                .HasOne(x => x.Venda)
-                .WithMany(x => x.VendaProduto)
-                .HasForeignKey(x => x.idVenda);
         }
     }
 }
